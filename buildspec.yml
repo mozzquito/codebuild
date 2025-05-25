@@ -1,5 +1,19 @@
-Environment Settings:
-- Operating System: Amazon Linux 2
-- Runtime: Standard
-- Image: aws/codebuild/amazonlinux2-x86_64-standard:4.0
-- Compute: 3 GB memory, 2 vCPUs
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+  pre_build:
+    commands:
+      - echo Pre-build phase started on `date`
+  build:
+    commands:
+      - echo Build phase started on `date`
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
